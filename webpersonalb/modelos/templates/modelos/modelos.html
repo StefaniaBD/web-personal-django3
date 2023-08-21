@@ -1,0 +1,44 @@
+{%extends 'core/base.html' %}
+
+{% block title %}Modelos{% endblock  %} 
+
+{% block background %}{% load static %}{% static 'core/img/modelos.jpeg' %}{% endblock %}
+
+{% block headers %}
+ <h1>Modelos</h1>
+ <span class="subheading">Descubre nuestra exclusiva selección de modelos: potencia, elegancia y tecnología en perfecta armonía para superar todas tus expectativas al volante.</span>
+{% endblock %}
+
+{% block content %}
+   {% for project in project %}
+         <div class="row project">  	
+         <div class="col-lg-3 col-md-4 offset-lg-1">
+                  <img class="img-fluid" src="{{ project.image.url}}" alt="">
+            </div>
+               <div class="col-lg-7 col-md-8">
+                  <h2 class="section-heading title">{{ project.title }}</h2>  
+                   <p> {{project.description}}</p>
+                   <p> {{project.motor}}</p>
+                   <p> {{project.alimentacion}}</p>
+                   <p> {{project.situacion}}</p>
+                   <p> {{project.cilindraje}}</p>
+                   <p> {{project.valvulas}}</p>
+                   <p> {{project.potencia}}</p>
+                   <p> {{project.par_maximo}}</p>
+                   <p> {{project.traccion}}</p>
+                   <p> {{project.caja_de_cambios}}</p>
+                   <p> {{project.precio}}$</p>
+                  <button> 
+                        <a href="{% url 'contact'%}">Comprar</a>
+                  </button>
+                 
+               </div>
+            </div>
+            </div>
+            {% endfor %}
+      </div>
+      </div>
+{% endblock  %}
+
+        
+   

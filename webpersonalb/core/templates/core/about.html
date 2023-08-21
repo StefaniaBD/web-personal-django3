@@ -1,0 +1,27 @@
+{%extends 'core/base.html' %}
+
+{% block title %}Nosotros{% endblock  %} 
+
+{% block background %}{% load static %}{% static 'core/img/about22.jpg' %}{% endblock %}
+
+{% block headers %}
+ <h1>Nosotros</h1>
+ <span class="subheading">Únete a nosotros y descubre el emocionante mundo de los autos</span>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <div class="row">   
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid avatar" src="{% static 'core/img/avatar3.png' %}" alt="">
+        </div>
+        <div class="col-lg-7 col-md-8">
+          <h2 class="section-heading">Quienes somos...</h2>   
+          <p>En AUCAR, somos apasionados por los autos y nos enorgullecemos de ofrecerte una experiencia de compra excepcional.</p>
+          <p>Nuestro compromiso es brindarte transparencia, calidad y un servicio excepcional mientras encuentras el automóvil perfecto que se adapte a tus necesidades y estilo de vida. </p>
+        </div>
+      </div>  
+    </div>
+{% endblock  %}
+
+        

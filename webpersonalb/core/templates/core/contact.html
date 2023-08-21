@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Contacto{% endblock  %}</title>
+  {% load static %}
+    <link href="{% static 'core/css/clean-blog.min.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/principal.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <div class="imagen-contacto">
+  {% block background %}{% static 'core/img/contacto.png' %}{% endblock %}
+  </div>
+
+ 
+    {% block headers %}
+     <div class="contenedor-contenido">
+     <h2 class="subtema">Contacto</h2>
+       <p>Estamos aquí para responder todas tus preguntas y brindarte el mejor servicio! Contáctanos y comienza a vivir
+        la experiencia de encontrar el auto perfecto para ti. </p>      
+        </div>
+    {% endblock %}
+    
+    {% block content %}
+    <main class="contenedor seccion">
+      <h2>Llene el formulario de Contacto</h2>
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+      <form class="formulario" method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+          <fieldset>
+              <legend>Información Personal</legend>
+    
+              <label for="nombre">Nombre</label>
+              <input type="text" placeholder="Tu Nombre" id="nombre" name="nombre">
+
+              <label for="apellido">Apellido</label>
+              <input type="text" placeholder="Tu Apellido" id="apellido" name="apellido">
+
+              <label for="email">E-mail</label>
+              <input type="email" placeholder="Tu Email" id="email" name="email">
+    
+              <label for="telefono">Teléfono</label>
+              <input type="tel" placeholder="Tu Teléfono" id="telefono" name="telefono">
+
+          </fieldset>
+    
+          <input type="submit" value="Enviar" class="boton-verde">
+      </form>
+    </main>
+    {% endblock  %}
+    
+
+
+</body>
+</html>
